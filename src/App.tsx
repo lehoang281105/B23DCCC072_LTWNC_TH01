@@ -54,7 +54,7 @@ export default function App() {
       </main>
 
       <footer className="page__footer">
-        Đồ án Lập trình Web Nâng Cao — TypeScript nâng cao · React Design Patterns · Redux Toolkit
+       Lập trình Web Nâng Cao — TypeScript nâng cao · React Design Patterns · Redux Toolkit
       </footer>
     </div>
   );
