@@ -1,10 +1,3 @@
-/**
- * Hạ tầng HTTP dùng chung — Tuần 1: generics.
- * ApiResponse<T> / Paginated<T> thay cho việc lặp Promise<{...}> ở mọi nơi,
- * findById<T extends HasId> là generic có constraint (nền tảng Repository).
- */
-
-/** Chuẩn phản hồi API của đồ án */
 export interface ApiResponse<T> {
   statusCode: number;
   message: string;

@@ -1,10 +1,3 @@
-/**
- * useDeadlineInfo — custom hook nâng cao (Tuần 2) + discriminated union (Tuần 1).
- *
- * Yêu cầu #6: mỗi bài tập hiển thị "Còn X ngày" / "Quá hạn Y ngày".
- * Trả về union 3 nhánh `kind`, compiler bắt buộc nơi gọi xử lý đủ mọi trường hợp;
- * nội bộ dùng useNow để ngày tự cập nhật theo thời gian thực.
- */
 import { useMemo } from 'react';
 import { useNow } from './useNow';
 import { daysUntil } from '../utils/date';

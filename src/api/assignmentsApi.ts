@@ -1,10 +1,3 @@
-/**
- * Mock API giả lập — yêu cầu #7: khi khởi động app lấy danh sách mẫu từ API.
- * Giả lập đủ "chất" mạng: độ trễ ~800ms, bao bọc ApiResponse<T>, có cờ bật lỗi
- * để demo trạng thái failed + nút thử lại.
- *
- * Đặt SIMULATE_ERROR = true nếu muốn xem màn hình lỗi / retry khi chấm demo.
- */
 import type { Assignment } from '../types/assignment';
 import type { ApiResponse } from './http';
 import { daysFromToday } from '../utils/date';
@@ -13,10 +6,7 @@ import { networkDelay } from './http';
 const NETWORK_DELAY_MS = 800;
 const SIMULATE_ERROR = false;
 
-/**
- * Dữ liệu mẫu: hạn nộp tính TƯƠNG ĐỐI so với hôm nay nên demo luôn đúng
- * mọi thời điểm — 1 bài quá hạn 2 ngày, 1 bài đến hạn hôm nay, 2 bài đã hoàn thành.
- */
+
 const SEED_ASSIGNMENTS: readonly Assignment[] = [
   {
     id: 'hw-1',
@@ -93,7 +83,6 @@ export function fetchAssignmentsApi(): Promise<ApiResponse<Assignment[]>> {
     return {
       statusCode: 200,
       message: 'OK',
-      // bản sao mới để tránh mutate seed ngoài ý muốn
       data: SEED_ASSIGNMENTS.map((assignment) => ({ ...assignment })),
     };
   });

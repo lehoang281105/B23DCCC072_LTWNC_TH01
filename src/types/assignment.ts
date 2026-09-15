@@ -1,8 +1,3 @@
-/**
- * Model dữ liệu của feature Assignments — Tuần 1: union types, interface,
- * utility types (Omit, Partial, Record), hằng tử kiểu (const assertion).
- */
-
 /** Độ ưu tiên của bài tập — union of string literals */
 export type Priority = 'high' | 'medium' | 'low';
 

@@ -1,12 +1,3 @@
-/**
- * Memoized selectors — Tuần 3: createSelector của Reselect (đi kèm RTK).
- *
- * Phân hoạch 4 bộ lọc (không giao nhau):
- * - completed   : completed === true
- * - overdue     : !completed && hạn nộp < hôm nay
- * - incomplete  : !completed && chưa quá hạn (sắp đến hạn)
- * - all         : mọi bài tập
- */
 import { createSelector } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 import { daysUntil, isOverdue } from '../../utils/date';
@@ -25,7 +16,7 @@ export const selectStatus = (state: RootState) => state.assignments.status;
 export const selectError = (state: RootState) => state.assignments.error;
 export const selectFilter = (state: RootState) => state.assignments.filter;
 
-/** Yêu cầu #5 — lọc theo trạng thái */
+
 export const selectFilteredAssignments = createSelector([selectItems, selectFilter], (items, filter) => {
   switch (filter) {
     case 'completed':

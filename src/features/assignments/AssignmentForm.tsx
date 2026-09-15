@@ -1,8 +1,3 @@
-/**
- * Form thêm bài tập mới — Yêu cầu #2.
- * Logic form được tách hoàn toàn vào custom hook generic useForm<T> (Tuần 2),
- * component chỉ còn hiển thị + kết nối Redux.
- */
 import { useAppDispatch } from '../../app/hooks';
 import { addAssignment } from './assignmentsSlice';
 import { useForm } from '../../hooks/useForm';

@@ -1,6 +1,3 @@
-/**
- * Layout trang chính — ghép các thành phần của feature assignments.
- */
 import { useAppSelector } from './app/hooks';
 import { selectFilterCounts } from './features/assignments/assignmentsSelectors';
 import AssignmentForm from './features/assignments/AssignmentForm';

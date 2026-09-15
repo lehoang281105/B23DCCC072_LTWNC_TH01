@@ -1,8 +1,3 @@
-/**
- * Type guards — Tuần 1: user-defined type predicate `value is T`.
- * Dùng để thu hẹp kiểu (narrowing) dữ liệu không tin cậy:
- * payload từ mock API, giá trị từ DOM (<select> luôn trả string).
- */
 import { ASSIGNMENT_FILTERS, PRIORITIES } from '../types/assignment';
 import type { Assignment, AssignmentFilter, Priority } from '../types/assignment';
 

@@ -1,8 +1,3 @@
-/**
- * Assignments slice — Tuần 3: createSlice + createAsyncThunk.
- * State gồm: danh sách bài tập, trạng thái gọi API (status union),
- * thông báo lỗi, và bộ lọc hiện tại.
- */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { fetchAssignmentsApi } from '../../api/assignmentsApi';
@@ -26,11 +21,7 @@ const initialState: AssignmentsState = {
   filter: 'all',
 };
 
-/**
- * Yêu cầu #7 — lấy danh sách mẫu từ API giả lập khi khởi động.
- * Dữ liệu được type guard kiểm tra trước khi vào store;
- * lỗi được marshal thành string qua rejectWithValue.
- */
+
 export const fetchAssignments = createAsyncThunk<Assignment[], void, { rejectValue: string }>(
   'assignments/fetchAll',
   async (_arg, { rejectWithValue }) => {
@@ -54,25 +45,25 @@ const assignmentsSlice = createSlice({
   name: 'assignments',
   initialState,
   reducers: {
-    /** Yêu cầu #2 — thêm bài tập mới từ form (PayloadAction giữ kiểu DTO) */
+    /**#2 — thêm bài tập mới từ form */
     addAssignment(state, action: PayloadAction<CreateAssignmentDto>) {
       state.items.unshift({ ...action.payload, id: createId('hw'), completed: false });
     },
-    /** Yêu cầu #3 — bật/tắt trạng thái hoàn thành (dùng findById<T extends HasId>) */
+    /**#3 — bật/tắt trạng thái hoàn thành */
     toggleAssignment(state, action: PayloadAction<string>) {
       const found = findById(state.items, action.payload);
       if (found) {
         found.completed = !found.completed;
       }
     },
-    /** Yêu cầu #4 — xoá bài tập */
+    /** #4 — xoá bài tập */
     removeAssignment(state, action: PayloadAction<string>) {
       const index = state.items.findIndex((item) => item.id === action.payload);
       if (index !== -1) {
         state.items.splice(index, 1);
       }
     },
-    /** Yêu cầu #5 — đổi bộ lọc danh sách */
+    /** #5 — đổi bộ lọc danh sách */
     setFilter(state, action: PayloadAction<AssignmentFilter>) {
       state.filter = action.payload;
     },

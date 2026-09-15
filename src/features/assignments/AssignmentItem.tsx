@@ -1,7 +1,3 @@
-/**
- * Một dòng bài tập — Yêu cầu #1, #3, #4, #6.
- * Nhãn ngày đến hạn lấy từ custom hook useDeadlineInfo (discriminated union).
- */
 import { useAppDispatch } from '../../app/hooks';
 import { removeAssignment, toggleAssignment } from './assignmentsSlice';
 import { PRIORITY_THEME } from '../../types/assignment';

@@ -1,8 +1,3 @@
-/**
- * Danh sách bài tập — yêu cầu #7 (gọi API khi mount) + hiển thị theo filter.
- * Đủ 3 nhánh trạng thái của createAsyncThunk: loading (skeleton),
- * failed (banner + retry), succeeded (danh sách / empty state).
- */
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchAssignments } from './assignmentsSlice';

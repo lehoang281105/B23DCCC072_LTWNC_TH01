@@ -1,8 +1,3 @@
-/**
- * Tiện ích xử lý ngày — tính "Còn X ngày" / "Quá hạn Y ngày".
- * Quy ước: so sánh theo NGÀY DƯƠNG (bỏ qua giờ/phút/giây) theo giờ địa phương,
- * để "Còn 3 ngày" đúng trực giác của sinh viên.
- */
 import type { Assignment } from '../types/assignment';
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
@@ -14,16 +9,13 @@ export function startOfDay(date: Date): Date {
   return d;
 }
 
-/**
- * Số ngày từ `now` tới `deadlineIso` (theo ngày dương):
- * > 0 còn X ngày, < 0 quá hạn |X| ngày, = 0 đến hạn hôm nay.
- */
+
 export function daysUntil(deadlineIso: string, now: Date = new Date()): number {
   const diff = startOfDay(new Date(deadlineIso)).getTime() - startOfDay(now).getTime();
   return Math.round(diff / MS_PER_DAY);
 }
 
-/** Định dạng hạn nộp để hiển thị, vd: 15/09/2026 */
+/** Định dạng hạn nộp để hiển thị */
 export function formatDeadline(deadlineIso: string): string {
   return new Date(deadlineIso).toLocaleDateString('vi-VN', {
     day: '2-digit',

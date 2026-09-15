@@ -1,17 +1,3 @@
-/**
- * FilterTabs — Compound Components pattern (Tuần 2), đúng khung Tabs trong slide:
- *
- *   <FilterTabs>
- *     <FilterTabs.Tab value="all">Tất cả</FilterTabs.Tab>
- *     <FilterTabs.Tab value="overdue">Quá hạn</FilterTabs.Tab>
- *     ...
- *   </FilterTabs>
- *
- * - FilterTabs (parent) nắm state qua Redux và cung cấp FilterTabsContext
- * - FilterTabs.Tab (child) đọc context qua useFilterTabsContext() — throw nếu
- *   dùng ngoài provider (bảo vệ khi dùng sai)
- * - API khai báo, bố cục tab do người dùng tự do sắp xếp
- */
 import { createContext, useContext } from 'react';
 import type { ReactNode } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';

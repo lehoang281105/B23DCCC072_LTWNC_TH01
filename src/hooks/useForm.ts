@@ -1,11 +1,3 @@
-/**
- * useForm<T> — custom hook nâng cao GENERIC (Tuần 2, cùng tinh thần useFetch<T>).
- *
- * Tách toàn bộ logic form (state, validate, reset, submit) ra khỏi UI:
- * - T là kiểu giá trị form (Record<string, string>) — dùng lại cho mọi form
- * - hàm validate được tiêm từ ngoài, trả về map lỗi theo từng field (Partial<Record<...>>)
- * - handleSubmit nhận callback onValid chỉ chạy khi validate sạch lỗi
- */
 import { useCallback, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 
