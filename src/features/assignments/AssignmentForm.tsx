@@ -5,6 +5,8 @@ import type { FormErrors } from '../../hooks/useForm';
 import { PRIORITIES, PRIORITY_THEME } from '../../types/assignment';
 import type { CreateAssignmentDto, Priority } from '../../types/assignment';
 import { todayIso } from '../../utils/date';
+import { Plus, Calendar, Flag } from 'lucide-react';
+import { toast } from 'sonner';
 
 // type alias (không phải interface) để có index signature ngầm,
 // thoả mãn ràng buộc T extends Record<string, string> của useForm<T>
@@ -50,6 +52,9 @@ export default function AssignmentForm() {
       priority: validValues.priority,
     };
     dispatch(addAssignment(dto));
+    toast.success('Đã thêm bài tập mới', {
+      description: validValues.title.trim(),
+    });
     reset();
   });
 
@@ -84,7 +89,10 @@ export default function AssignmentForm() {
         </div>
 
         <div className="form-field">
-          <label htmlFor="deadline">Hạn nộp</label>
+          <label htmlFor="deadline">
+            <Calendar size={14} className="form-field__label-icon" />
+            Hạn nộp
+          </label>
           <input
             id="deadline"
             name="deadline"
@@ -97,7 +105,10 @@ export default function AssignmentForm() {
         </div>
 
         <div className="form-field">
-          <label htmlFor="priority">Độ ưu tiên</label>
+          <label htmlFor="priority">
+            <Flag size={14} className="form-field__label-icon" />
+            Độ ưu tiên
+          </label>
           <select id="priority" name="priority" value={values.priority} onChange={handleChange}>
             {PRIORITIES.map((priority) => (
               <option key={priority} value={priority}>
@@ -110,7 +121,8 @@ export default function AssignmentForm() {
 
         <div className="form-field form-field--submit">
           <button type="submit" className="btn btn--primary">
-            + Thêm bài tập
+            <Plus size={18} strokeWidth={2.5} />
+            Thêm bài tập
           </button>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { setFilter } from './assignmentsSlice';
 import { selectFilter, selectFilterCounts } from './assignmentsSelectors';
 import type { FilterCounts } from './assignmentsSelectors';
 import type { AssignmentFilter } from '../../types/assignment';
+import type { LucideIcon } from 'lucide-react';
 
 interface FilterTabsContextType {
   active: AssignmentFilter;
@@ -41,7 +42,7 @@ function FilterTabs({ children }: { children: ReactNode }) {
   );
 }
 
-function Tab({ value, children }: { value: AssignmentFilter; children?: ReactNode }) {
+function Tab({ value, children, icon: Icon }: { value: AssignmentFilter; children?: ReactNode; icon?: LucideIcon }) {
   const { active, select, counts } = useFilterTabsContext();
   const isActive = active === value;
 
@@ -53,6 +54,7 @@ function Tab({ value, children }: { value: AssignmentFilter; children?: ReactNod
       className={isActive ? 'filter-tab filter-tab--active' : 'filter-tab'}
       onClick={() => select(value)}
     >
+      {Icon && <Icon size={16} className="filter-tab__icon" />}
       <span className="filter-tab__label">{children}</span>
       <span className="filter-tab__count">{counts[value]}</span>
     </button>
